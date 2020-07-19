@@ -1,4 +1,8 @@
 {
+  "address": {
+    "city": "Dhaka",
+    "country": "Bangladesh"
+  },
   "age": 20,
   "first_name": "Ramim",
   "mail": "ramim85@gamil.com"

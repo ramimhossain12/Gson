@@ -17,17 +17,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.ttID);
 
-
+        // gson obj
         Gson gson = new Gson();
-      /*
-        Employee employee = new Employee("Ramim",20,"ramim85@gamil.com");
+
+        ///obj
+        /* Address address = new Address("Bangladesh","Dhaka");
+
+
+         */
+
+       /* Employee employee = new Employee("Ramim",20,"ramim85@gamil.com",address);
         String json = gson.toJson(employee);
 
-       */
+        */
 
-        String json = "{\"first_name\":\"Ramim\",\"age\":30,\"mail\":\"ramim@gmail.com\"}";
+        String json = "{\"address\":{\"city\":\"Dhaka\",\"country\":\"Bangladesh\"},\"age\":30,\"first_name\":\"Ramim\",\"mail\":\"ramim@gmail.com\"}";
         Employee employee = gson.fromJson(json, Employee.class);
-
-
     }
 }
+
