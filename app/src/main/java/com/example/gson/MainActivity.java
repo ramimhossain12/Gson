@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,19 +25,28 @@ public class MainActivity extends AppCompatActivity {
         // gson obj
         Gson gson = new Gson();
 
-        ///obj
-        /* Address address = new Address("Bangladesh","Dhaka");
 
+        /*
+        ///obj for address;
+        Address address = new Address("Bangladesh", "Dhaka");
+
+
+       // obj for family member;
+        List<FamilyMember> family = new ArrayList<>();
+        family.add(new FamilyMember("Wife", 25));
+        family.add(new FamilyMember("Daugther", 3));
+
+        //Employee employee = new Employee("Ramim", 20, "ramim85@gamil.com", address, family);
+        String json = gson.toJson(family);
 
          */
 
-       /* Employee employee = new Employee("Ramim",20,"ramim85@gamil.com",address);
-        String json = gson.toJson(employee);
 
-        */
+        String json = "[{\"role\":\"Wife\",\"age\":25},{\"role\":\"Daugther\",\"age\":3}]";
+        Type familyType = new TypeToken<ArrayList<FamilyMember>>(){}.getType();
+        FamilyMember[] family = gson.fromJson(json, familyType);
 
-        String json = "{\"address\":{\"city\":\"Dhaka\",\"country\":\"Bangladesh\"},\"age\":30,\"first_name\":\"Ramim\",\"mail\":\"ramim@gmail.com\"}";
-        Employee employee = gson.fromJson(json, Employee.class);
+
     }
 }
 
